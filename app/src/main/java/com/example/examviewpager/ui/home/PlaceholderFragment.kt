@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -40,7 +41,9 @@ class PlaceholderFragment : Fragment() {
         val button: Button = root.findViewById(R.id.button)
         button.setOnClickListener {
             val dialog = PayDialogFragment()
-            activity?.supportFragmentManager
+            dialog.setStyle( DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_NoTitleBar_Fullscreen );
+            //Theme_Translucent_NoTitleBar_Fullscreen 투명
+            //activity?.supportFragmentManager
             //requireContext()
             //val fragmentManager: FragmentManager = getSupportFragmentManager()
 

@@ -22,10 +22,10 @@
 
     <Button
         android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="60dp"
-        android:background="#9C27B0"
         android:text="@string/btn_dialog_caller"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
