@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
@@ -37,7 +38,10 @@ class PlaceholderFragment : Fragment() {
         pageViewModel.text.observe(viewLifecycleOwner, Observer<String> {
             textView.text = it
         })
-
+        val imageView: ImageView = root.findViewById(R.id.image_view)
+        pageViewModel.image.observe(viewLifecycleOwner, Observer<Int> {
+            imageView.setImageResource(it);
+        })
         val button: Button = root.findViewById(R.id.button)
         button.setOnClickListener {
             val dialog = PayDialogFragment()

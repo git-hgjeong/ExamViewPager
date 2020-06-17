@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">ExamViewPager</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Pay</string>
+    <string name="title_dashboard">ID</string>
+    <string name="title_notifications">Pos</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="btn_dialog_caller">Payment Request</string>
