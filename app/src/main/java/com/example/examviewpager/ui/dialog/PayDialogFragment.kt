@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.example.examviewpager.R
 
@@ -20,7 +22,21 @@ class PayDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pay_dialog, container, false)
+        val view = inflater.inflate(R.layout.fragment_pay_dialog, container, false)
+        var param1 : String = "init";
+        arguments.let {
+            if (it != null) {
+                param1 = it.getString(ARG_PARAM1, "none")
+            }
+        }
+        val paramTextView : TextView = view.findViewById(R.id.textView2)
+        paramTextView.text = param1
+
+        val btnClose : Button = view.findViewById(R.id.btnDialogClose)
+        btnClose.setOnClickListener{
+            dismiss()
+        }
+        return view
     }
 
 }

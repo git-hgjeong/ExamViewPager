@@ -1,9 +1,7 @@
 package com.example.examviewpager
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.findNavController
@@ -11,6 +9,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.examviewpager.ui.dialog.PayDialogFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,9 +30,13 @@ class MainActivity : AppCompatActivity() {
         btnComm.setOnClickListener {
             val msg1 : String = navView.selectedItemId.toString()
 
+            val args = Bundle()
+            args.putString("param1", "parameter test.")
+
             val dialog = PayDialogFragment()
             dialog.setStyle( DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_NoTitleBar_Fullscreen );
             dialog.show(supportFragmentManager, "dialog");
+            dialog.arguments = args
         }
     }
 }
