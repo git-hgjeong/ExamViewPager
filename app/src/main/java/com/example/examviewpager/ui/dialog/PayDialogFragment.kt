@@ -39,6 +39,17 @@ class PayDialogFragment : DialogFragment() {
                 Log.d("[onPageSelected]", nowPageIdx.toString())
             }
         })
+
+        val btnOk : Button = root.findViewById(R.id.btnOk)
+        btnOk.setOnClickListener{
+            dismiss()
+        }
+
+        val btnCancel : Button = root.findViewById(R.id.btnCancel)
+        btnCancel.setOnClickListener{
+            dismiss()
+        }
+
         return root
     }
 
