@@ -21,6 +21,7 @@ import com.example.examviewpager.ui.home.PageViewModel
 class PlaceholderFragment : Fragment() {
 
     private lateinit var pageViewModel: PageViewModel
+    private var CARD : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +41,9 @@ class PlaceholderFragment : Fragment() {
         })
         val imageView: ImageView = root.findViewById(R.id.image_view)
         pageViewModel.image.observe(viewLifecycleOwner, Observer<Int> {
-            imageView.setImageResource(it);
+            imageView.setImageResource(it)
         })
+
         val button: Button = root.findViewById(R.id.button)
         button.setOnClickListener {
             val dialog = PayDialogFragment()

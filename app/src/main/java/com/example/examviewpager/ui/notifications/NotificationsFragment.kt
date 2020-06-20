@@ -18,6 +18,7 @@ import java.text.DecimalFormat
 class NotificationsFragment : Fragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
+    private var AMOUNT : String = ""
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -104,11 +105,16 @@ class NotificationsFragment : Fragment() {
         val dec = (newStr.toBigDecimal() * calDec).setScale(2);
 //        return dec.toPlainString()
         val res : String = "$" + makeCommaNumber(dec)
-        return res;
+        AMOUNT = res
+        return res
     }
 
     fun makeCommaNumber(input:BigDecimal): String{
         val formatter = DecimalFormat("###,##0.00")
         return formatter.format(input)
+    }
+
+    fun getAmount():String{
+        return AMOUNT
     }
 }

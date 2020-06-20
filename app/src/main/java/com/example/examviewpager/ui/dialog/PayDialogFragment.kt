@@ -13,7 +13,7 @@ import com.example.examviewpager.R
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_AMOUNT = "amount"
 
 class PayDialogFragment : DialogFragment() {
 
@@ -24,13 +24,23 @@ class PayDialogFragment : DialogFragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_pay_dialog, container, false)
         var param1 : String = "init";
+        var amount : String = "";
         arguments.let {
             if (it != null) {
                 param1 = it.getString(ARG_PARAM1, "none")
+                amount = it.getString(ARG_AMOUNT, "$0.00")
             }
         }
-        val paramTextView : TextView = view.findViewById(R.id.textView2)
+        val paramTextView : TextView = view.findViewById(R.id.txtTitle)
         paramTextView.text = param1
+
+        val paramAmount : TextView = view.findViewById(R.id.txtAmount)
+        if(param1 != "ID"){
+            paramAmount.text = amount
+            paramAmount.visibility = View.VISIBLE
+        }else{
+            paramAmount.visibility = View.INVISIBLE
+        }
 
         val btnClose : Button = view.findViewById(R.id.btnDialogClose)
         btnClose.setOnClickListener{
