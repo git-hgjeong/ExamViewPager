@@ -13,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.examviewpager.ui.dashboard.DashboardFragment
 import com.example.examviewpager.ui.dialog.PayDialogFragment
+import com.example.examviewpager.ui.dialog.SendDialogFragment
 import com.example.examviewpager.ui.home.HomeFragment
 import com.example.examviewpager.ui.notifications.NotificationsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -52,19 +53,19 @@ class MainActivity : AppCompatActivity() {
                     val fm = childFragment as HomeFragment
                     val str: String = fm.getCardinfo()
                     Log.d("Get:", str)
-                    openDialog(args)
+                    openSendDialog(args)
                 }else if(childFragment is NotificationsFragment){
                     val fm = childFragment as NotificationsFragment
                     val str: String = fm.getAmount()
                     Log.d("Get:", str)
                     if(str != ""){
                         args.putString("amount", str)
-                        openDialog(args)
+                        openSendDialog(args)
                     }
                 }else if(childFragment is DashboardFragment){
                     val fm = childFragment as DashboardFragment
                     Log.d("==>","DashboardFragment")
-                    openDialog(args)
+                    openSendDialog(args)
                 }else{
                     Log.d("==>","2")
                 }
@@ -74,8 +75,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun openDialog(args:Bundle){
-        val dialog = PayDialogFragment()
+    fun openSendDialog(args:Bundle){
+        val dialog = SendDialogFragment()
         dialog.setStyle( DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_NoTitleBar_Fullscreen );
         dialog.show(supportFragmentManager, "dialog");
         dialog.arguments = args
