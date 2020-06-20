@@ -23,29 +23,7 @@ class PayDialogFragment : DialogFragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_pay_dialog, container, false)
-        var param1 : String = "init";
-        var amount : String = "";
-        arguments.let {
-            if (it != null) {
-                param1 = it.getString(ARG_PARAM1, "none")
-                amount = it.getString(ARG_AMOUNT, "$0.00")
-            }
-        }
-        val paramTextView : TextView = view.findViewById(R.id.txtTitle)
-        paramTextView.text = param1
 
-        val paramAmount : TextView = view.findViewById(R.id.txtAmount)
-        if(param1 != "ID"){
-            paramAmount.text = amount
-            paramAmount.visibility = View.VISIBLE
-        }else{
-            paramAmount.visibility = View.INVISIBLE
-        }
-
-        val btnClose : Button = view.findViewById(R.id.btnDialogClose)
-        btnClose.setOnClickListener{
-            dismiss()
-        }
         return view
     }
 
