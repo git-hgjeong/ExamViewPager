@@ -5,9 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.example.examviewpager.R
+import com.example.examviewpager.ui.dialog.PayDialogFragment
+import com.example.examviewpager.ui.dialog.SendDialogFragment
 import com.example.examviewpager.ui.main.SectionsPagerAdapter
 
 class HomeFragment : Fragment() {
@@ -34,6 +38,12 @@ class HomeFragment : Fragment() {
             }
         })
 
+        val btnPay : Button = root.findViewById(R.id.btnPay)
+        btnPay.setOnClickListener {
+            val dialog = PayDialogFragment()
+            dialog.setStyle( DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_NoTitleBar_Fullscreen );
+            dialog.show(parentFragmentManager, "dialog")
+        }
 
         return root
     }
@@ -46,4 +56,5 @@ class HomeFragment : Fragment() {
     fun getCardinfo() : String{
         return nowPageIdx.toString()
     }
+
 }
